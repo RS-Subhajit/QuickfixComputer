@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFix Computers- Professional Computer Repair Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .stats-section {
+            background: var(--light-gray);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 15px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        .cta-section {
+            background: linear-gradient(45deg, var(--accent-color), #ea580c);
+            color: white;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+        }
+
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 30px;
+        }
+
+        .footer h5 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-tools me-2"></i>QuickFix Computer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-2 px-3" href="tel:7682933270">Call Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Fast & Reliable Computer Repair Services</h1>
+                    <p class="lead mb-4">Get your computer back to peak performance with our expert repair services. Same-day service available for most issues.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-warning btn-lg px-4">Get Free Quote</a>
+                        <a href="tel:7682933270" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-phone me-2"></i>Call Now
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <small class="text-light">
+                            <i class="fas fa-check-circle me-2"></i>Licensed & Insured
+                            <i class="fas fa-check-circle me-2 ms-3"></i>Same Day Service
+                            <i class="fas fa-check-circle me-2 ms-3"></i>90-Day Warranty
+                        </small>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <i class="fas fa-laptop-medical" style="font-size: 200px; opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Our Expert Services</h2>
+                    <p class="lead text-muted">Comprehensive computer repair solutions for all your tech needs</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>Laptop Repair</h4>
+                        <p class="text-muted">Screen replacement, keyboard repair, battery replacement, and hardware upgrades for all laptop brands.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Screen & LCD Repair</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Keyboard Replacement</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Battery Issues</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h4>Desktop Repair</h4>
+                        <p class="text-muted">Complete desktop computer repair services including hardware replacement and performance optimization.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Hardware Upgrades</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Power Supply Issues</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Motherboard Repair</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <h4>Virus Removal</h4>
+                        <p class="text-muted">Complete malware and virus removal with system optimization to keep your computer running smoothly.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Malware Removal</li>
+                            <li><i class="fas fa-check text-success me-2"></i>System Cleanup</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Security Setup</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-hdd"></i>
+                        </div>
+                        <h4>Data Recovery</h4>
+                        <p class="text-muted">Professional data recovery services for hard drives, SSDs, and other storage devices.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Hard Drive Recovery</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Deleted File Recovery</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Backup Solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4>Network Setup</h4>
+                        <p class="text-muted">Home and office network installation, WiFi setup, and troubleshooting connectivity issues.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>WiFi Installation</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Network Security</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Router Configuration</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h4>General Maintenance</h4>
+                        <p class="text-muted">Regular computer maintenance to prevent issues and keep your system running at optimal performance.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>System Tune-up</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Software Updates</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <p class="mb-0">Happy Customers</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <p class="mb-0">Same Day Repairs</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <p class="mb-0">Years Experience</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <p class="mb-0">Emergency Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">How We Work</h2>
+                    <p class="lead text-muted">Our simple and efficient repair process</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h4>Contact Us</h4>
+                        <p class="text-muted">Call us or fill out our form to describe your computer issue</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h4>Free Diagnosis</h4>
+                        <p class="text-muted">We'll diagnose the problem and provide a free estimate</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h4>Expert Repair</h4>
+                        <p class="text-muted">Our certified technicians will fix your computer using quality parts</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h4>Quality Check</h4>
+                        <p class="text-muted">We test everything thoroughly and provide a 90-day warranty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">What Our Customers Say</h2>
+                    <p class="lead text-muted">Don't just take our word for it</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>QuickFix saved my business! My laptop crashed right before an important presentation, and they had it fixed within 2 hours. Incredible service!</p>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <strong>SM</strong>
+                            </div>
+                            <div>
+                                <strong>Sarah Miller</strong>
+                                <div class="text-muted small">Business Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>Professional, fast, and affordable. They recovered all my family photos from a corrupted hard drive. I thought they were lost forever!</p>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <strong>MJ</strong>
+                            </div>
+                            <div>
+                                <strong>Mike Johnson</strong>
+                                <div class="text-muted small">Home User</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>Great communication throughout the repair process. They explained everything clearly and the pricing was very fair. Highly recommend!</p>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <strong>LR</strong>
+                            </div>
+                            <div>
+                                <strong>Lisa Rodriguez</strong>
+                                <div class="text-muted small">Student</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-3">Need Your Computer Fixed Today?</h2>
+                    <p class="lead mb-0">Don't let computer problems slow you down. Get expert repair service now!</p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                    <a href="tel:7682933270" class="btn btn-light btn-lg px-4 me-3">
+                        <i class="fas fa-phone me-2"></i>Call Now
+                    </a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg px-4">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Get In Touch</h2>
+                    <p class="lead text-muted">Ready to fix your computer? Contact us today for a free quote</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form p-5">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="device" class="form-label">Device Type</label>
+                                <select class="form-select" id="device" required>
+                                    <option value="">Select Device Type</option>
+                                    <option value="laptop">Laptop</option>
+                                    <option value="desktop">Desktop</option>
+                                    <option value="tablet">Tablet</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="issue" class="form-label">Describe the Issue</label>
+                                <textarea class="form-control" id="issue" rows="4" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="urgency" class="form-label">How urgent is this repair?</label>
+                                <select class="form-select" id="urgency">
+                                    <option value="low">Not urgent - within a week is fine</option>
+                                    <option value="medium">Somewhat urgent - within 2-3 days</option>
+                                    <option value="high">Very urgent - same day service needed</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">Get Free Quote</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="service-icon bg-primary text-white mb-3">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h5>Visit Our Shop</h5>
+                    <p class="text-muted">Brahmankhanda<br>Sirlo, Cuttack, 754131</p>
+                </div>
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="service-icon bg-primary text-white mb-3">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h5>Call Us</h5>
+                    <p class="text-muted">7682933270<br>Available 24/7 for emergencies</p>
+                </div>
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="service-icon bg-primary text-white mb-3">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h5>Email Us</h5>
+                    <p class="text-muted">thequickfixcomputers.com<br>We respond within 1 hour</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-tools me-2"></i>QuickFix Computers</h5>
+                    <p class="text-light">Your trusted local computer repair service. We fix it fast, we fix it right, and we back our work with a 90-day warranty.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#services">Laptop Repair</a></li>
+                        <li><a href="#services">Desktop Repair</a></li>
+                        <li><a href="#services">Virus Removal</a></li>
+                        <li><a href="#services">Data Recovery</a></li>
+                        <li><a href="#services">Network Setup</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Brahmankhanda, Sirlo, Cuttack, 754131</p>
+                    <p><i class="fas fa-phone me-2"></i>7682933270</p>
+                    <p><i class="fas fa-envelope me-2"></i>thequickfixcomputers@gmail.com</p>
+                    <p><i class="fas fa-clock me-2"></i>Mon-Fri: 8AM-7PM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sat: 9AM-5PM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sun: Emergency Only</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 QuickFix Computer. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Licensed & Insured | 90-Day Warranty on All Repairs</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.backgroundColor = 'white';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const device = document.getElementById('device').value;
+            const issue = document.getElementById('issue').value;
+            const urgency = document.getElementById('urgency').value;
+            
+            // Simple validation
+            if (!name || !phone || !email || !device || !issue) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // In a real WordPress site, this would submit to a PHP handler
+            // For now, show a success message
+            alert(`Thank you ${name}! We've received your repair request for your ${device}. We'll contact you at ${phone} within 30 minutes to discuss your ${issue} issue.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{3})(\d{0,3})/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('%') ? '%' : element.textContent.includes('+') ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : element.textContent.includes('+') ? '+' : '');
+                }
+            }, 20);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        let target = parseInt(text);
+                        if (text.includes('%')) {
+                            target = parseInt(text);
+                        } else if (text.includes('+')) {
+                            target = parseInt(text);
+                        } else if (text.includes('/')) {
+                            stat.textContent = '24/7';
+                            return;
+                        }
+                        stat.textContent = '0';
+                        animateCounter(stat, target);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Add loading animation to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.type === 'submit') {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                    }, 2000);
+                }
+            });
+        });
+
+        // Preload critical images
+        const preloadImages = [
+            'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'
+        ];
+
+        preloadImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    </script>
+</body>
+</html>
